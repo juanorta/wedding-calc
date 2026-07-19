@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Budget Planner</title>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow" id="venue-meta"></div>
+    <h1 id="venue-name"></h1>
+    <p class="sub">Set your guest count, pick a reception package, and adjust vendor quotes — everything totals live.</p>
+  </header>
+
+  <div class="panel">
+    <div class="controls">
+      <div class="ctrl guest-ctrl"><label for="guests">Guests</label><select id="guests"></select></div>
+      <div class="ctrl"><label for="grat">Gratuity %</label><input type="number" id="grat" min="0" max="40" step="0.5"></div>
+      <div class="ctrl"><label for="tax">Tax %</label><input type="number" id="tax" min="0" max="15" step="0.05"></div>
+      <div class="summary">
+        <div class="stat low"><div class="k">Cheapest reception</div><div class="v" id="s-low">—</div><div class="cap" id="s-low-cap"></div></div>
+        <div class="stat high"><div class="k">Priciest reception</div><div class="v" id="s-high">—</div><div class="cap" id="s-high-cap"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel hero">
+    <div class="eyebrow">Your total</div>
+    <div class="hero-grid">
+      <div class="ctrl"><label for="plate">Plateware</label><select id="plate"></select></div>
+      <div class="ctrl"><label for="barsel">Bar</label><select id="barsel"></select></div>
+      <div class="ctrl" id="byobwrap" style="display:none"><label for="byobamt">BYOB alcohol $</label>
+        <input type="number" id="byobamt" min="0" step="50" class="hero-input"></div>
+      <div class="total"><div class="k">Full wedding total</div><div class="v" id="grandtotal">—</div><div class="cap" id="grandpg"></div></div>
+    </div>
+    <div class="breakdown">
+      <div>Reception: <b id="bd-recep">—</b></div><div>Vendors: <b id="bd-vend">—</b></div><div>= Total: <b id="bd-total">—</b></div>
+    </div>
+  </div>
+
+  <h2>Additional vendors</h2>
+  <div class="panel">
+    <div class="vgrid" id="vgrid"></div>
+    <div class="vsub"><span class="k">Vendors subtotal</span><span class="v" id="vsubtotal">—</span></div>
+  </div>
+
+  <h2>All reception scenarios</h2>
+  <div class="tablecard">
+    <table>
+      <thead><tr>
+        <th class="l">Plate</th><th class="l">Bar type</th><th>Food</th>
+        <th class="hide">Bar</th><th class="hide">Gratuity</th><th class="hide">Tax</th>
+        <th class="hide">Rental</th><th>Grand total</th><th>Per guest</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <div class="notes" id="notes"></div>
+</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
